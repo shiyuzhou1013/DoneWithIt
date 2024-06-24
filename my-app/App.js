@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, StyleSheet } from "react-native";
+import AppButton from "./app/components/AppButton";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import Card from "./app/components/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <View style={styles.container}>
+    //   <Card
+    //     title="Red jacket for sale"
+    //     subTitle="$100"
+    //     image={require("./app/assets/jacket.jpg")}
+    //   />
+    // </View>
+    // <ListingDetailsScreen />
+    <ViewImageScreen />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#f8f4f4",
+    padding: 20,
+    paddingTop: 100,
   },
 });
