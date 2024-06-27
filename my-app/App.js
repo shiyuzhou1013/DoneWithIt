@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Button } from "react-native";
+import { Image, StyleSheet, Button, Text } from "react-native";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -11,31 +11,27 @@ import * as ImagePicker from "expo-image-picker";
 import { useEffect, useState } from "react";
 import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
-  // const [imageUris, setImageUris] = useState([]);
-
-  // const handleAdd = (uri) => {
-  //   setImageUris([...imageUris, uri]);
-  // };
-
-  // const handleRemove = (uri) => {
-  //   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  // };
-
   return (
     // <GestureHandlerRootView>
 
-    // <Screen>
-    //   <ImageInputList
-    //     imageUris={imageUris}
-    //     onAddImage={handleAdd}
-    //     onRemoveImage={handleRemove}
-    //   />
-    // </Screen>
+    // <NavigationContainer>
+    //   <StackNavigator />
+    // </NavigationContainer>
+    // </GestureHandlerRootView>
+    // <GestureHandlerRootView>
+    //   <ListingEditScreen />
     // </GestureHandlerRootView>
     <GestureHandlerRootView>
-      <ListingEditScreen />
+      <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
     </GestureHandlerRootView>
   );
 }
