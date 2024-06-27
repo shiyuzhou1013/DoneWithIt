@@ -1,3 +1,9 @@
 import client from "./client";
 
-const getListings = () => client.get("/listings");
+const endpoint = "/listings";
+
+const getListings = () => client.get(endpoint);
+
+export default {
+  getListings,
+};
