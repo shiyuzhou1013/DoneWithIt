@@ -7,10 +7,11 @@ import Text from "../components/Text";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
+  console.log(route.params);
 
   return (
     <View>
-      <Image style={styles.image} source={listing.image} />
+      <Image style={styles.image} source={listing.images[0].url} />
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{listing.title}</Text>
         <Text style={styles.price}>{listing.price}</Text>

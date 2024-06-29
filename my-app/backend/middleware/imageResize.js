@@ -7,25 +7,36 @@ const outputFolder = "public/assets";
 module.exports = async (req, res, next) => {
   const images = [];
 
-  const resizePromises = req.files.map(async (file) => {
-    await sharp(file.path)
-      .resize(2000)
-      .jpeg({ quality: 50 })
-      .toFile(path.resolve(outputFolder, file.filename + "_full.jpg"));
+  try {
+    const resizePromises = req.files.map(async (file) => {
+      await sharp(file.path)
+        .resize(2000)
+        .jpeg({ quality: 50 })
+        .toFile(path.resolve(outputFolder, file.filename + "_full.jpg"));
 
-    await sharp(file.path)
-      .resize(100)
-      .jpeg({ quality: 30 })
-      .toFile(path.resolve(outputFolder, file.filename + "_thumb.jpg"));
+      await sharp(file.path)
+        .resize(100)
+        .jpeg({ quality: 30 })
+        .toFile(path.resolve(outputFolder, file.filename + "_thumb.jpg"));
 
-    fs.unlinkSync(file.path);
+      fs.unlink(file.path, (err) => {
+        if (err) {
+          console.error(`Error deleting file ${file.path}:`, err);
+        } else {
+          console.log(`Deleted file: ${file.path}`);
+        }
+      });
 
-    images.push(file.filename);
-  });
+      images.push(file.filename);
+    });
 
-  await Promise.all([...resizePromises]);
+    await Promise.all([...resizePromises]);
 
-  req.images = images;
+    req.images = images;
 
-  next();
+    next();
+  } catch (error) {
+    console.error("Error in image resizing middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
