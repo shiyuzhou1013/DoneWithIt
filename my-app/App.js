@@ -16,6 +16,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
     //   <ListingEditScreen />
     // </GestureHandlerRootView>
     <GestureHandlerRootView>
+      <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
         <AppNavigator />
       </NavigationContainer>

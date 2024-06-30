@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-native-community/netinfo": "11.3.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
@@ -25,14 +27,17 @@
     "joi": "^17.13.3",
     "lottie-ios": "^4.4.3",
     "lottie-react-native": "6.7.0",
+    "moment": "^2.30.1",
     "react": "18.2.0",
     "react-native": "0.74.2",
+    "react-native-expo-image-cache": "^4.1.0",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-progress": "^5.0.1",
     "react-native-safe-area-context": "4.10.1",
     "react-native-screens": "3.31.1",
     "rn-fetch-blob": "^0.12.0",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "expo-blur": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

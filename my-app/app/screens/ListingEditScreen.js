@@ -84,7 +84,7 @@ function ListingEditScreen() {
   const location = useLocation();
   const [showUploadScreen, setShowUploadScreen] = useState(false);
 
-  const handleSubmit = async (listing) => {
+  const handleSubmit = async (listing, { resetForm }) => {
     setShowUploadScreen(true);
     const result = await listingsApi.addListing({ ...listing, location });
 
@@ -95,6 +95,7 @@ function ListingEditScreen() {
     setTimeout(() => {
       setShowUploadScreen(false);
       alert("Success");
+      resetForm();
     }, 1000);
   };
 
