@@ -1,5 +1,3 @@
-const Joi = require("joi");
-
 module.exports = (schema) => (req, res, next) => {
   const result = schema.validate(
     req.body.location

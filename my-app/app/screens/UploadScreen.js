@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Modal } from "react-native";
 import * as Progress from "react-native-progress";
-import LottieView from "lottie-react-native";
 
 import colors from "../config/colors";
 

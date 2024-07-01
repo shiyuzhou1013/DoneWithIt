@@ -1,3 +1,4 @@
+import React from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Image, StyleSheet, Button, Text } from "react-native";
@@ -21,6 +22,7 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
+import { navigationRef } from "./app/navigation/rootNavigation";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -61,7 +63,7 @@ export default function App() {
     <AuthContext.Provider value={{ user, setUser }}>
       <GestureHandlerRootView>
         <OfflineNotice />
-        <NavigationContainer theme={navigationTheme}>
+        <NavigationContainer ref={navigationRef} theme={navigationTheme}>
           {user ? <AppNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       </GestureHandlerRootView>
