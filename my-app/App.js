@@ -1,21 +1,9 @@
 import React from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Image, StyleSheet, Button, Text } from "react-native";
-import * as ImagePicker from "expo-image-picker";
 import { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import ListingEditScreen from "./app/screens/ListingEditScreen";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
-import ListingsScreen from "./app/screens/ListingsScreen";
-import ListItem from "./app/components/lists/ListItem";
-import Screen from "./app/components/Screen";
-import RegisterScreen from "./app/screens/RegisterScreen";
-import MessageScreen from "./app/screens/MessageScreen";
-import ImageInput from "./app/components/ImageInput";
-import ImageInputList from "./app/components/ImageInputList";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
@@ -51,15 +39,6 @@ export default function App() {
   }
 
   return (
-    // <GestureHandlerRootView>
-
-    // <NavigationContainer>
-    //   <StackNavigator />
-    // </NavigationContainer>
-    // </GestureHandlerRootView>
-    // <GestureHandlerRootView>
-    //   <ListingEditScreen />
-    // </GestureHandlerRootView>
     <AuthContext.Provider value={{ user, setUser }}>
       <GestureHandlerRootView>
         <OfflineNotice />
@@ -70,7 +49,3 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});

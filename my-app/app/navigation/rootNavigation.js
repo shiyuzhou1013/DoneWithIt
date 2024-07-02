@@ -1,4 +1,3 @@
-import { deleteNotificationCategoryAsync } from "expo-notifications";
 import React from "react";
 
 export const navigationRef = React.createRef();
